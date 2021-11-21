@@ -57,10 +57,7 @@ namespace Learca
         {
             if (TypeAnswer && AnswerSide.ValueCount > 0)
                 return new LearningControlsCreatorForTwoSidesCard_TypeAnswer(panel, this);
-
-            //if (ShowAnswer)
-            //    return new LearningControlsCreator_TwoSides_Answer(mainLearningPanel, this);
-
+            
             if (ShowAnswer)
                 return new LearningControlsCreatorForTwoSidesCard_OralAnswer_LearnOneSide(panel, this);
 
