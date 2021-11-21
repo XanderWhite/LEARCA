@@ -128,6 +128,7 @@
             this.dataGridView_Decks.Name = "dataGridView_Decks";
             this.dataGridView_Decks.ReadOnly = true;
             this.dataGridView_Decks.RowHeadersVisible = false;
+            this.dataGridView_Decks.RowHeadersWidth = 51;
             this.dataGridView_Decks.RowTemplate.Height = 50;
             this.dataGridView_Decks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Decks.Size = new System.Drawing.Size(1151, 242);
@@ -137,6 +138,7 @@
             // 
             this.ColumnNumber.Frozen = true;
             this.ColumnNumber.HeaderText = "№";
+            this.ColumnNumber.MinimumWidth = 6;
             this.ColumnNumber.Name = "ColumnNumber";
             this.ColumnNumber.ReadOnly = true;
             this.ColumnNumber.Width = 49;
@@ -145,6 +147,7 @@
             // 
             this.ColumnDeckName.Frozen = true;
             this.ColumnDeckName.HeaderText = "DECK NAME";
+            this.ColumnDeckName.MinimumWidth = 6;
             this.ColumnDeckName.Name = "ColumnDeckName";
             this.ColumnDeckName.ReadOnly = true;
             this.ColumnDeckName.Width = 300;
@@ -153,8 +156,10 @@
             // 
             this.ColumnCards.Frozen = true;
             this.ColumnCards.HeaderText = "CARDS";
+            this.ColumnCards.MinimumWidth = 6;
             this.ColumnCards.Name = "ColumnCards";
             this.ColumnCards.ReadOnly = true;
+            this.ColumnCards.Width = 125;
             // 
             // ColumnStartingPoint
             // 
@@ -162,6 +167,7 @@
             this.ColumnStartingPoint.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnStartingPoint.Frozen = true;
             this.ColumnStartingPoint.HeaderText = "START POINT";
+            this.ColumnStartingPoint.MinimumWidth = 6;
             this.ColumnStartingPoint.Name = "ColumnStartingPoint";
             this.ColumnStartingPoint.ReadOnly = true;
             this.ColumnStartingPoint.Width = 200;
@@ -170,6 +176,7 @@
             // 
             this.ColumnDescription.Frozen = true;
             this.ColumnDescription.HeaderText = "DESCRIPTION";
+            this.ColumnDescription.MinimumWidth = 6;
             this.ColumnDescription.Name = "ColumnDescription";
             this.ColumnDescription.ReadOnly = true;
             this.ColumnDescription.Width = 300;
@@ -178,6 +185,7 @@
             // 
             this.ColumnDeckType.Frozen = true;
             this.ColumnDeckType.HeaderText = "DECK TYPE";
+            this.ColumnDeckType.MinimumWidth = 6;
             this.ColumnDeckType.Name = "ColumnDeckType";
             this.ColumnDeckType.ReadOnly = true;
             this.ColumnDeckType.Width = 200;
@@ -558,8 +566,7 @@
             // 
             // Form_SettingsToLearn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1347, 721);

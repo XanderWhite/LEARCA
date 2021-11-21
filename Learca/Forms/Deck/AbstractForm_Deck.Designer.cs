@@ -167,6 +167,7 @@
             this.dataGridView_Cards.Name = "dataGridView_Cards";
             this.dataGridView_Cards.ReadOnly = true;
             this.dataGridView_Cards.RowHeadersVisible = false;
+            this.dataGridView_Cards.RowHeadersWidth = 51;
             this.dataGridView_Cards.RowTemplate.Height = 50;
             this.dataGridView_Cards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Cards.Size = new System.Drawing.Size(1149, 530);
@@ -177,6 +178,7 @@
             // 
             this.ColumnNumber.Frozen = true;
             this.ColumnNumber.HeaderText = "№";
+            this.ColumnNumber.MinimumWidth = 6;
             this.ColumnNumber.Name = "ColumnNumber";
             this.ColumnNumber.ReadOnly = true;
             this.ColumnNumber.Width = 49;
@@ -185,6 +187,7 @@
             // 
             this.ColumnLeftSideValues.Frozen = true;
             this.ColumnLeftSideValues.HeaderText = "Left Side Values";
+            this.ColumnLeftSideValues.MinimumWidth = 6;
             this.ColumnLeftSideValues.Name = "ColumnLeftSideValues";
             this.ColumnLeftSideValues.ReadOnly = true;
             this.ColumnLeftSideValues.Width = 400;
@@ -196,6 +199,7 @@
             this.Column_LeftSideImage.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column_LeftSideImage.Frozen = true;
             this.Column_LeftSideImage.HeaderText = "Left Side Image";
+            this.Column_LeftSideImage.MinimumWidth = 6;
             this.Column_LeftSideImage.Name = "Column_LeftSideImage";
             this.Column_LeftSideImage.ReadOnly = true;
             this.Column_LeftSideImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -205,6 +209,7 @@
             // 
             this.ColumnRighSideValues.Frozen = true;
             this.ColumnRighSideValues.HeaderText = "Right Side Values";
+            this.ColumnRighSideValues.MinimumWidth = 6;
             this.ColumnRighSideValues.Name = "ColumnRighSideValues";
             this.ColumnRighSideValues.ReadOnly = true;
             this.ColumnRighSideValues.Width = 400;
@@ -217,6 +222,7 @@
             this.Column_RightSideImage.Frozen = true;
             this.Column_RightSideImage.HeaderText = "Right Side Image";
             this.Column_RightSideImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Column_RightSideImage.MinimumWidth = 6;
             this.Column_RightSideImage.Name = "Column_RightSideImage";
             this.Column_RightSideImage.ReadOnly = true;
             this.Column_RightSideImage.Width = 150;
@@ -334,10 +340,9 @@
             this.label_Loading.TabIndex = 35;
             this.label_Loading.Text = "LOADING...";
             // 
-            // Form_Deck
+            // AbstractForm_Deck
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1347, 721);
@@ -353,7 +358,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "Form_Deck";
+            this.Name = "AbstractForm_Deck";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LEARCA. Deck";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Cards)).EndInit();

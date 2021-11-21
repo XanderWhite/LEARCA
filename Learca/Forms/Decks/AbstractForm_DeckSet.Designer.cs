@@ -39,13 +39,13 @@
             this.ColumnStartingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu = new Learca.DoubleBufferedPanel();
+            this.btnMoveInside = new System.Windows.Forms.Button();
             this.btnToCards = new System.Windows.Forms.Button();
             this.btnDeleteEmptyDecks = new System.Windows.Forms.Button();
             this.btnDeleteDeck = new System.Windows.Forms.Button();
             this.btnCreateDeck = new System.Windows.Forms.Button();
             this.btnOpenDeck = new System.Windows.Forms.Button();
             this.label_Loading = new System.Windows.Forms.Label();
-            this.btnMoveInside = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Decks)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +97,7 @@
             this.dataGridView_Decks.Name = "dataGridView_Decks";
             this.dataGridView_Decks.ReadOnly = true;
             this.dataGridView_Decks.RowHeadersVisible = false;
+            this.dataGridView_Decks.RowHeadersWidth = 51;
             this.dataGridView_Decks.RowTemplate.Height = 50;
             this.dataGridView_Decks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Decks.Size = new System.Drawing.Size(1150, 636);
@@ -106,6 +107,7 @@
             // 
             this.ColumnNumber.Frozen = true;
             this.ColumnNumber.HeaderText = "№";
+            this.ColumnNumber.MinimumWidth = 6;
             this.ColumnNumber.Name = "ColumnNumber";
             this.ColumnNumber.ReadOnly = true;
             this.ColumnNumber.Width = 49;
@@ -114,6 +116,7 @@
             // 
             this.ColumnDeckName.Frozen = true;
             this.ColumnDeckName.HeaderText = "DECK NAME";
+            this.ColumnDeckName.MinimumWidth = 6;
             this.ColumnDeckName.Name = "ColumnDeckName";
             this.ColumnDeckName.ReadOnly = true;
             this.ColumnDeckName.Width = 350;
@@ -122,8 +125,10 @@
             // 
             this.ColumnCards.Frozen = true;
             this.ColumnCards.HeaderText = "CARDS";
+            this.ColumnCards.MinimumWidth = 6;
             this.ColumnCards.Name = "ColumnCards";
             this.ColumnCards.ReadOnly = true;
+            this.ColumnCards.Width = 125;
             // 
             // ColumnStartingDate
             // 
@@ -131,6 +136,7 @@
             this.ColumnStartingDate.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnStartingDate.Frozen = true;
             this.ColumnStartingDate.HeaderText = "STARTING DATE";
+            this.ColumnStartingDate.MinimumWidth = 6;
             this.ColumnStartingDate.Name = "ColumnStartingDate";
             this.ColumnStartingDate.ReadOnly = true;
             this.ColumnStartingDate.Width = 200;
@@ -139,6 +145,7 @@
             // 
             this.ColumnDescription.Frozen = true;
             this.ColumnDescription.HeaderText = "DESCRIPTION";
+            this.ColumnDescription.MinimumWidth = 6;
             this.ColumnDescription.Name = "ColumnDescription";
             this.ColumnDescription.ReadOnly = true;
             this.ColumnDescription.Width = 450;
@@ -157,6 +164,19 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(166, 298);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnMoveInside
+            // 
+            this.btnMoveInside.FlatAppearance.BorderSize = 0;
+            this.btnMoveInside.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMoveInside.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMoveInside.ForeColor = System.Drawing.Color.White;
+            this.btnMoveInside.Location = new System.Drawing.Point(3, 233);
+            this.btnMoveInside.Name = "btnMoveInside";
+            this.btnMoveInside.Size = new System.Drawing.Size(160, 40);
+            this.btnMoveInside.TabIndex = 5;
+            this.btnMoveInside.Text = "MOVE INSIDE";
+            this.btnMoveInside.UseVisualStyleBackColor = true;
             // 
             // btnToCards
             // 
@@ -199,7 +219,7 @@
             this.btnDeleteDeck.Text = "DELETE";
             this.btnDeleteDeck.UseVisualStyleBackColor = true;
             // 
-            // buttonCreateDeck
+            // btnCreateDeck
             // 
             this.btnCreateDeck.BackColor = System.Drawing.Color.Transparent;
             this.btnCreateDeck.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
@@ -208,7 +228,7 @@
             this.btnCreateDeck.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCreateDeck.ForeColor = System.Drawing.Color.White;
             this.btnCreateDeck.Location = new System.Drawing.Point(3, 3);
-            this.btnCreateDeck.Name = "buttonCreateDeck";
+            this.btnCreateDeck.Name = "btnCreateDeck";
             this.btnCreateDeck.Size = new System.Drawing.Size(160, 40);
             this.btnCreateDeck.TabIndex = 0;
             this.btnCreateDeck.Text = "CREATE";
@@ -241,23 +261,9 @@
             this.label_Loading.TabIndex = 10;
             this.label_Loading.Text = "LOADING...";
             // 
-            // btnMoveInside
+            // AbstractForm_DeckSet
             // 
-            this.btnMoveInside.FlatAppearance.BorderSize = 0;
-            this.btnMoveInside.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMoveInside.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMoveInside.ForeColor = System.Drawing.Color.White;
-            this.btnMoveInside.Location = new System.Drawing.Point(3, 233);
-            this.btnMoveInside.Name = "btnMoveInside";
-            this.btnMoveInside.Size = new System.Drawing.Size(160, 40);
-            this.btnMoveInside.TabIndex = 5;
-            this.btnMoveInside.Text = "MOVE INSIDE";
-            this.btnMoveInside.UseVisualStyleBackColor = true;
-            // 
-            // Form_AbstractDeckSet
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1347, 721);
@@ -268,7 +274,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "Form_AbstractDeckSet";
+            this.Name = "AbstractForm_DeckSet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LEARCA. Decks";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Decks)).EndInit();
