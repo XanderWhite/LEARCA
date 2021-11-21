@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9122FF0-E52F-49E3-B637-88569E9CE437}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Learca</RootNamespace>
+    <AssemblyName>Learca</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Cards.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backstage\Card\Card.cs" />
+    <Compile Include="Backstage\Card\CardSide.cs" />
+    <Compile Include="Backstage\Deck\AbstractDeck.cs" />
+    <Compile Include="Backstage\DeckSet\AbstractDeckSet.cs" />
+    <Compile Include="Backstage\DeckSet\ChosenDeckSet.cs" />
+    <Compile Include="Backstage\Deck\ChosenDeck.cs" />
+    <Compile Include="Backstage\Card\Side.cs" />
+    <Compile Include="Backstage\Learning\HistoryCard\HistoryCard.cs" />
+    <Compile Include="Backstage\Learning\HistoryCard\HistoryOneSideCard.cs" />
+    <Compile Include="Backstage\Learning\HistoryCard\HistoryTwoSidesCard.cs" />
+    <Compile Include="Backstage\Learning\LearningCardListCreator.cs" />
+    <Compile Include="Backstage\Learning\LearningCard\AbstractLearningCard.cs" />
+    <Compile Include="Backstage\Learning\LearningCard\LearningOneSideCard.cs" />
+    <Compile Include="Backstage\Learning\LearningCard\LearningTwoSidesCard.cs" />
+    <Compile Include="Backstage\Learning\LearningCard\LearningTwoSidesCard_LearnBothSides.cs" />
+    <Compile Include="Backstage\Learning\LearningCard\LearningTwoSidesCard_LearnOneSide.cs" />
+    <Compile Include="Backstage\Learning\LearningSettings.cs" />
+    <Compile Include="Backstage\Learning\Teacher.cs" />
+    <Compile Include="Backstage\Learning\ViewingResult.cs" />
+    <Compile Include="Forms\CardSide\Form_CardSide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardSide\Form_CardSide.Designer.cs">
+      <DependentUpon>Form_CardSide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardSide\Panel_Values.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Cards\AbstractForm_Cards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cards\AbstractForm_Cards.Designer.cs">
+      <DependentUpon>AbstractForm_Cards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cards\Form_Cards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cards\Form_Cards_MoveOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cards\Form_Cards_AddToChosenDeck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Card\Form_Card.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Card\Form_Card.Designer.cs">
+      <DependentUpon>Form_Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Card\MiniPanel_CardSide.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Decks\AbstractForm_DeckSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decks\AbstractForm_DeckSet.Designer.cs">
+      <DependentUpon>AbstractForm_DeckSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Decks\AbstractForm_DeckSet_MoveInside.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decks\Form_Decks_AddToLearn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decks\DeckSet\Form_DeckSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decks\DeckSet\Form_DeckSet_MoveInside.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Decks\ChosenDeckSet\Form_ChosenDeckSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck\AbstractForm_Deck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck\AbstractForm_Deck.Designer.cs">
+      <DependentUpon>AbstractForm_Deck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Deck\AbstractForm_Deck_MoveInside.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck\Form_LookAtDeck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck\Form_LookAtDeck.Designer.cs">
+      <DependentUpon>Form_LookAtDeck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Deck\LearningDeck\Form_Deck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck\LearningDeck\Form_Deck_MoveInside.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Deck\RepeatingDeck\Form_ChosenDeck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormColorSettings.cs" />
+    <Compile Include="Forms\ImageHandler.cs" />
+    <Compile Include="Forms\Learning\BeginLearnWith.cs" />
+    <Compile Include="Forms\Learning\Form_Learning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Learning\Form_Learning.Designer.cs">
+      <DependentUpon>Form_Learning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Learning\Form_LearningSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Learning\Form_LearningSettings.Designer.cs">
+      <DependentUpon>Form_LearningSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Learning\LearningCardSidePanel\LearningCardSidePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Learning\LearningCardSidePanel\LearningCardSidePanel_TypeAnswer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Learning\LearningPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForOneSideCard.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForOneSideCard_History.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForOneSideCard_Learning.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForTwoSidesCard.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForTwoSidesCard_OralAnswer.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForTwoSidesCard_History_CardIsLearned.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForTwoSidesCard_History_RepeatCard.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForTwoSidesCard_OralAnswer_LearnBothSides.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForTwoSidesCard_OralAnswer_LearnOneSide.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForTwoSidesCard_OralQuestion.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningControlsCreatorForTwoSidesCard_TypeAnswer.cs" />
+    <Compile Include="Forms\Learning\LearningPanelControlsCreator\LearningPanelControlsCreator.cs" />
+    <Compile Include="DoubleBufferedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Backstage\Database.cs" />
+    <Compile Include="Forms\Form_Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Home.Designer.cs">
+      <DependentUpon>Form_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Backstage\DeckSet\DeckSet.cs" />
+    <Compile Include="Backstage\Deck\Deck.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Backstage\Learning\SelectedAbstractDecksToLearn.cs" />
+    <EmbeddedResource Include="Forms\CardSide\Form_CardSide.resx">
+      <DependentUpon>Form_CardSide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cards\AbstractForm_Cards.resx">
+      <DependentUpon>AbstractForm_Cards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Card\Form_Card.resx">
+      <DependentUpon>Form_Card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Decks\AbstractForm_DeckSet.resx">
+      <DependentUpon>AbstractForm_DeckSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Deck\AbstractForm_Deck.resx">
+      <DependentUpon>AbstractForm_Deck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Deck\Form_LookAtDeck.resx">
+      <DependentUpon>Form_LookAtDeck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Home.resx">
+      <DependentUpon>Form_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Learning\Form_Learning.resx">
+      <DependentUpon>Form_Learning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Learning\Form_LearningSettings.resx">
+      <DependentUpon>Form_LearningSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cards.ico" />
+    <Content Include="Images\Cards.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CardSide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\RedCross.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
