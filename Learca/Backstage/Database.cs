@@ -25,7 +25,7 @@ namespace Learca
         /// Путь к файлу с избранными карточками
         /// </summary>
         private static readonly string chosenDeckSetPath;
-        
+
         /// <summary>
         /// Набор Колод
         /// </summary>
@@ -34,13 +34,19 @@ namespace Learca
         /// Набор Избранных Колод
         /// </summary>
         public static ChosenDeckSet ChosenDeckSet { get; private set; }
-        
+
+        /// <summary>
+        /// Флаг для приветствия пользователя
+        /// </summary>
+        private static bool greeting;
+
         static Database()
         {
             deckSetPath = Settings.Default.Path_DeckSet;
             chosenDeckSetPath = Settings.Default.Path_ChosenDeckSet;
             DeckSet = new DeckSet();
             ChosenDeckSet = new ChosenDeckSet();
+            greeting = true;
 
             InitDeckSet(deckSetPath, DeckSet);
             InitDeckSet(chosenDeckSetPath, ChosenDeckSet);
@@ -64,7 +70,11 @@ namespace Learca
                 }
                 catch
                 {
-                    MessageBox.Show("Hello from LEARCA");
+                    if (greeting)
+                    {
+                        MessageBox.Show("Hello from LEARCA");
+                        greeting = false;
+                    }
                 }
             }
         }
