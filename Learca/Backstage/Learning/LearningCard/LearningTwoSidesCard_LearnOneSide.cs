@@ -49,11 +49,11 @@ namespace Learca
         }
 
         /// <summary>
-        ///  Получить Создателя Кнопок и Панелей с изображением сторон карточек для LearningPanel   
+        ///  Создать Создателя Кнопок и Панелей с изображением сторон карточек для LearningPanel   
         /// </summary>
         /// <param name="panel"></param>
         /// <returns></returns>
-        public override LearningPanelControlsCreator GetControlsCreatorFor(LearningPanel panel)
+        public override LearningPanelControlsCreator CreateControlsCreatorFor(LearningPanel panel)
         {
             if (TypeAnswer && AnswerSide.ValueCount > 0)
                 return new LearningControlsCreatorForTwoSidesCard_TypeAnswer(panel, this);

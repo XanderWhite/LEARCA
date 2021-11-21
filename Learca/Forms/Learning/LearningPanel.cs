@@ -55,7 +55,7 @@ namespace Learca
             }
             else
             { 
-               AddControls(teacher.CurrentCard.GetControlsCreatorFor(this));
+               AddControls(teacher.CurrentCard.CreateControlsCreatorFor(this));
             }
         }
 

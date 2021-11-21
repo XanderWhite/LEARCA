@@ -128,7 +128,7 @@ namespace Learca
         /// </summary>
         /// <param name="panel"></param>
         /// <returns></returns>
-        public override LearningPanelControlsCreator GetControlsCreatorFor(LearningPanel panel)
+        public override LearningPanelControlsCreator CreateControlsCreatorFor(LearningPanel panel)
         {
             if (TypeAnswer && AnswerSide.ValueCount > 0)
             {

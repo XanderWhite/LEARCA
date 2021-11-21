@@ -189,10 +189,7 @@ namespace Learca
             if (node == null)
                 throw new ArgumentNullException("XmlNode node не может быть null");
 
-            //if (node.Name != this.GetType().Name)
-            //   return;
-
-            foreach (XmlNode childNode in node)
+                  foreach (XmlNode childNode in node)
             {
                 var deck = CreateDeck();
 

@@ -234,9 +234,6 @@ namespace Learca
             if (node == null)
                 throw new ArgumentNullException("XmlNode node не может быть null");
 
-            //if (node.Name != this.GetType().Name)
-            //    return;
-
             Name = node.Attributes["Name"].Value;
             StartPoint = DateTime.Parse(node.Attributes["StartingPoint"].Value);
 

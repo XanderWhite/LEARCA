@@ -61,7 +61,7 @@
         /// </summary>
         /// <param name="panel"></param>
         /// <returns></returns>
-        public override LearningPanelControlsCreator GetControlsCreatorFor(LearningPanel panel)
+        public override LearningPanelControlsCreator CreateControlsCreatorFor(LearningPanel panel)
         {
             return new LearningControlsCreatorForOneSideCard_Learning(panel, this);
         }
