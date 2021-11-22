@@ -51,16 +51,12 @@ namespace Learca
         /// Получение пар(ключ-значение). Индекс Колоды - Индекс Карты
         /// </summary>
         /// <returns></returns>
-        private Dictionary<int, int> GetIndecies()
+        private IEnumerable<KeyValuePair<int, int>> GetIndecies()
         {
-            var dict = new Dictionary<int, int>();
-
             foreach (Card card in cards)
             {
-                dict.Add(card.ParentDeck.Index, card.Index);
+                yield return new KeyValuePair<int, int>(card.ParentDeck.Index, card.Index);
             }
-
-            return dict;
         }
 
         /// <summary>
