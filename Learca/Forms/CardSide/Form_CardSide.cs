@@ -341,9 +341,5 @@ namespace Learca
         }
 
         #endregion Picture  
-        
-        
-
-       
     }
 }
