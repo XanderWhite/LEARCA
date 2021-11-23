@@ -53,6 +53,6 @@ namespace Learca
         /// </summary>
         /// <param name="panel"></param>
         /// <returns></returns>
-        public abstract LearningPanelControlsCreator GetControlsCreatorFor(LearningPanel panel);
+        public abstract LearningPanelControlsCreator GetControlsCreatorFor(MainForm mainForm, LearningPanel panel);
     }
 }

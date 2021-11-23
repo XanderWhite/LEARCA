@@ -13,8 +13,8 @@ namespace Learca
     {
         HistoryTwoSidesCard historyCard;
 
-        public LearningControlsCreatorForTwoSidesCard_History_CardIsLearned(LearningPanel panel, HistoryTwoSidesCard historyCard)
-             : base(panel, historyCard.LearningCard as LearningTwoSidesCard)
+        public LearningControlsCreatorForTwoSidesCard_History_CardIsLearned(MainForm mainForm, LearningPanel panel, HistoryTwoSidesCard historyCard)
+             : base(mainForm, panel, historyCard.LearningCard as LearningTwoSidesCard)
         {
             this.historyCard = historyCard ?? throw new ArgumentNullException("HistoryCard_TwoSides historyCard не может быть null");
         }

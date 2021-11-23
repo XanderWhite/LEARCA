@@ -54,6 +54,11 @@ namespace Learca
 
             tBFilter.ForeColor = Color.Gray;
             tBFilter.Text = "...SEARCH...";
+
+            foreach (DataGridViewColumn column in dataGridView_Decks.Columns)
+            {
+                column.Width = mainForm.ConvertWidth(column.Width);
+            }
         }
 
         /// <summary>

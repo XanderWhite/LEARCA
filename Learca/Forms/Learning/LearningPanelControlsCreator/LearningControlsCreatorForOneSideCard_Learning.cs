@@ -12,8 +12,8 @@ namespace Learca
         {
             private LearningOneSideCard learningCard_OneSide;
 
-            public LearningControlsCreatorForOneSideCard_Learning(LearningPanel panel, LearningOneSideCard learningCard)
-                : base(panel, learningCard.CardSide)
+            public LearningControlsCreatorForOneSideCard_Learning(MainForm mainForm, LearningPanel panel, LearningOneSideCard learningCard)
+                : base(mainForm, panel, learningCard.CardSide)
             {
                 this.learningCard_OneSide = learningCard ?? throw new ArgumentNullException("LearningOneSideCard learningCard_OneSide не может быть null");
             }

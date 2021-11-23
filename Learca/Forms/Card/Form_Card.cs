@@ -215,7 +215,7 @@ namespace Learca
         {
             Controls.Remove(panel);
 
-            panel = new MiniPanel_CardSide(side, panel.Location, doubleClickEvent);
+            panel = new MiniPanel_CardSide(mainForm, side, panel.Location, panel.Size, doubleClickEvent);
 
             Controls.Add(panel);
         }
@@ -270,7 +270,7 @@ namespace Learca
 
         private void BtnLookAtDeck_Click(object sender, EventArgs e)
         {
-            var form = new Form_LookAtDeck(card.ParentDeck);
+            var form = new Form_LookAtDeck(mainForm, card.ParentDeck);
 
             form.ShowDialog();
         }

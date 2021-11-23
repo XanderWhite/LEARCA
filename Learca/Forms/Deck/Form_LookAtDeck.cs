@@ -17,12 +17,16 @@ namespace Learca
     /// </summary>
     internal partial class Form_LookAtDeck : Form
     {
-        private AbstractDeck deck;
+        private readonly AbstractDeck deck;
+        private readonly MainForm mainForm;
         private CancellationTokenSource cts;
 
-        public Form_LookAtDeck(AbstractDeck deck)
+        public int STANDART_GRID_WIDTH = 1149;
+
+        public Form_LookAtDeck(MainForm mainForm, AbstractDeck deck)
         {
-            this.deck = deck ?? throw new ArgumentNullException("AbstractDeck deck не может быть null");  
+            this.deck = deck ?? throw new ArgumentNullException("AbstractDeck deck не может быть null");
+            this.mainForm = mainForm ?? throw new ArgumentNullException("MainForm mainForm не может быть null");
 
             InitializeComponent();
 
@@ -35,6 +39,11 @@ namespace Learca
 
             dataGridView_Cards.Columns["Column_LeftSideImage"].DefaultCellStyle.NullValue = null;
             dataGridView_Cards.Columns["Column_RightSideImage"].DefaultCellStyle.NullValue = null;
+
+            foreach (DataGridViewColumn column in dataGridView_Cards.Columns)
+            {
+                column.Width = column.Width * dataGridView_Cards.Width / STANDART_GRID_WIDTH;
+            }
         }
 
         private void Form_LookAtDeck_VisibleChanged(object sender, EventArgs e)

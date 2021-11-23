@@ -61,6 +61,11 @@ namespace Learca
             dataGridView_Cards.Columns["Column_RightSideImage"].DefaultCellStyle.NullValue = null;
 
             FillFormComponents();
+
+            foreach (DataGridViewColumn column in dataGridView_Cards.Columns)
+            {
+                column.Width = mainForm.ConvertWidth(column.Width);
+            }
         }
 
         private void BtnCreateCard_Click(object sender, EventArgs e)

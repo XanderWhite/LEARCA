@@ -13,14 +13,17 @@ namespace Learca
     /// </summary>
     public abstract class LearningControlsCreatorForOneSideCard : LearningPanelControlsCreator
     {
-        private const int PANEL_LOCATION_X = 334;
-        private const int PANEL_LOCATION_Y = 3;
+        private readonly int panel_LocationX = 334;
+        private readonly int panel_LocationY = 3;
 
         protected CardSide cardSide;
 
-        public LearningControlsCreatorForOneSideCard(LearningPanel parentPanel, CardSide cardSide) : base(parentPanel)
+        public LearningControlsCreatorForOneSideCard(MainForm mainForm, LearningPanel parentPanel, CardSide cardSide) : base(mainForm, parentPanel)
         {
             this.cardSide = cardSide ?? throw new ArgumentNullException(" CardSide cardSide не может быть null");
+
+            panel_LocationX = mainForm.ConvertWidth(334);
+            panel_LocationY = mainForm.ConvertHeight(3);
         }
 
         /// <summary>
@@ -36,9 +39,9 @@ namespace Learca
         /// </summary>
         protected virtual LearningCardSidePanel CreateCardSidePanel()
         {
-            var cardPanel = new LearningCardSidePanel(cardSide)
+            var cardPanel = new LearningCardSidePanel(mainForm, cardSide)
             {
-                Location = new Point(PANEL_LOCATION_X, PANEL_LOCATION_Y)
+                Location = new Point(panel_LocationX, panel_LocationY)
             };
 
             cardPanel.Fill(true);

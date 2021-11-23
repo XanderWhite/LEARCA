@@ -10,22 +10,27 @@ namespace Learca
     /// </summary>
     abstract class LearningControlsCreatorForTwoSidesCard : LearningPanelControlsCreator
     {
-        private const int BTN_HINT_LOCATION_X = 3;
-        private const int LEFT_PANEL_LOCATION_X = 3;
-        protected const int RIGTH_PANEL_LOCATION_X = 665;
-        protected const int PANEL_LOCATION_Y = 3;
+        private readonly int btnHint_LocationX;
+        private readonly int leftPanel_LocationX;
+        protected readonly int rightPanel_LocationX;
+        protected readonly int panel_LocationY;
         protected LearningTwoSidesCard learningCard_TwoSidesCard;
         protected CardSide leftSide;
         protected CardSide rightSide;
         protected LearningCardSidePanel leftCardPanel;
         protected LearningCardSidePanel rightCardPanel;
 
-        public LearningControlsCreatorForTwoSidesCard(LearningPanel panel, LearningTwoSidesCard learningCard)
-            : base(panel)
+        public LearningControlsCreatorForTwoSidesCard(MainForm mainForm, LearningPanel panel, LearningTwoSidesCard learningCard)
+            : base(mainForm, panel)
         {
             this.learningCard_TwoSidesCard = learningCard ?? throw new ArgumentNullException("LearningCard_TwoSides learningCard не может быть null");
             leftSide = learningCard.QuestionSide;
             rightSide = learningCard.AnswerSide;
+
+            btnHint_LocationX = mainForm.ConvertWidth(3);
+            leftPanel_LocationX = mainForm.ConvertWidth(3);
+            rightPanel_LocationX = mainForm.ConvertWidth(665);
+            panel_LocationY = mainForm.ConvertHeight(3);
         }
 
         /// <summary>
@@ -56,7 +61,7 @@ namespace Learca
         /// <returns></returns>
         private Button CreateButtonHint()
         {
-            var btn = CreateButton("HINT", new Point(BTN_HINT_LOCATION_X, BTN_LOCATION_Y), 5);
+            var btn = CreateButton("HINT", new Point(btnHint_LocationX, btnLocationY), 5);
 
             btn.Click += BtnHint_Click;
 
@@ -104,16 +109,16 @@ namespace Learca
         
         private LearningCardSidePanel CreateLeftCardSidePanel()
         {
-            var panel = new LearningCardSidePanel(leftSide);
-            panel.Location = new Point(LEFT_PANEL_LOCATION_X, PANEL_LOCATION_Y);
+            var panel = new LearningCardSidePanel(mainForm, leftSide);
+            panel.Location = new Point(leftPanel_LocationX, panel_LocationY);
 
             return panel;
         }
 
         protected virtual LearningCardSidePanel CreateRightCardSidePanel()
         {
-            var panel = new LearningCardSidePanel(rightSide);
-            panel.Location = new Point(RIGTH_PANEL_LOCATION_X, PANEL_LOCATION_Y);
+            var panel = new LearningCardSidePanel(mainForm, rightSide);
+            panel.Location = new Point(rightPanel_LocationX, panel_LocationY);
 
             return panel;
         }

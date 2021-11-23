@@ -32,12 +32,12 @@
         /// </summary>
         /// <param name="mainLearningPanel"></param>
         /// <returns></returns>
-        public override LearningPanelControlsCreator GetControlsCreatorFor(LearningPanel mainLearningPanel)
+        public override LearningPanelControlsCreator GetControlsCreatorFor(MainForm mainForm, LearningPanel mainLearningPanel)
         {
             if (ViewResult == ViewResult.Learned)
-                return new LearningControlsCreatorForTwoSidesCard_History_CardIsLearned(mainLearningPanel, this);
+                return new LearningControlsCreatorForTwoSidesCard_History_CardIsLearned( mainForm, mainLearningPanel, this);
 
-            return new LearningControlsCreatorForTwoSidesCard_History_RepeatCard(mainLearningPanel, this);
+            return new LearningControlsCreatorForTwoSidesCard_History_RepeatCard( mainForm, mainLearningPanel, this);
         }
     }
 }

@@ -12,8 +12,8 @@ namespace Learca
         {
             HistoryOneSideCard historyCard;
 
-            public LearningControlsCreatorForOneSideCard_History(LearningPanel panel, HistoryOneSideCard historyCard)
-                : base(panel, historyCard.CardSide)
+            public LearningControlsCreatorForOneSideCard_History(MainForm mainForm, LearningPanel panel, HistoryOneSideCard historyCard)
+                : base(mainForm, panel, historyCard.CardSide)
             {
                 this.historyCard = historyCard ?? throw new ArgumentNullException("HistoryOneSideCard historyCard не может быть null");
             }

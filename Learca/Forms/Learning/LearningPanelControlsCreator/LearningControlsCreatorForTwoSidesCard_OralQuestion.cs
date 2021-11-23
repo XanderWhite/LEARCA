@@ -10,8 +10,8 @@ namespace Learca
     /// </summary>
     class LearningControlsCreatorForTwoSidesCard_OralQuestion : LearningControlsCreatorForTwoSidesCard
     {
-        public LearningControlsCreatorForTwoSidesCard_OralQuestion(LearningPanel panel, LearningTwoSidesCard learningCard)
-      : base(panel, learningCard)
+        public LearningControlsCreatorForTwoSidesCard_OralQuestion(MainForm mainForm, LearningPanel panel, LearningTwoSidesCard learningCard)
+      : base(mainForm, panel, learningCard)
         {
 
         }

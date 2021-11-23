@@ -13,12 +13,14 @@ namespace Learca
     /// </summary>
     public abstract class LearningPanelControlsCreator
     {
-        private const int BTN_HEIGHT = 40;
-        private const int BTN_WIDTH = 160;
-        protected const int BTN_LOCATION_Y = 599;
-        protected const int BTN_LEFT_LOCATION_X = 414;
-        protected const int BTN_MIDDLE_LOCATION_X = 580;
-        protected const int BTN_RIGHT_LOCATION_X = 746;
+        protected readonly MainForm mainForm;
+
+        private readonly int btnHeight;
+        private readonly int btnWidth;
+        protected readonly int btnLocationY;
+        protected readonly int btnLeft_LocationX;
+        protected readonly int btnMiddle_LocationX;
+        protected readonly int btnRight_LocationX;
 
         protected LearningPanel parentPanel;
 
@@ -35,12 +37,20 @@ namespace Learca
         protected readonly List<Button> buttons;
         public Button[] Buttons => buttons.ToArray();
 
-        protected LearningPanelControlsCreator(LearningPanel parentPanel)
+        protected LearningPanelControlsCreator(MainForm mainForm, LearningPanel parentPanel)
         {
             this.parentPanel = parentPanel ?? throw new ArgumentNullException("LearningPanel parentPanel не может быть null");
+            this.mainForm = mainForm ?? throw new ArgumentNullException("MainForm mainForm не может быть null");
 
             buttons = new List<Button>();
             cardPanels = new List<LearningCardSidePanel>();
+
+            btnHeight = mainForm.ConvertHeight(40);
+            btnWidth = mainForm.ConvertWidth(160);
+            btnLocationY = mainForm.ConvertHeight(599);
+            btnLeft_LocationX = mainForm.ConvertWidth(414);
+            btnMiddle_LocationX = mainForm.ConvertWidth(580);
+            btnRight_LocationX = mainForm.ConvertWidth(746);
         }
 
         /// <summary>
@@ -67,7 +77,7 @@ namespace Learca
             var btn = new Button
             {
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
-                Size = new Size(BTN_WIDTH, BTN_HEIGHT),
+                Size = new Size(mainForm.ConvertWidth(btnWidth), mainForm.ConvertHeight(btnHeight)),
                 Text = text,
                 Location = location,
                 FlatStyle = FlatStyle.Flat,
@@ -90,7 +100,7 @@ namespace Learca
         /// <returns></returns>
         protected Button CreateLeftButton(string text, int tabIndex)
         {
-            return CreateButton(text, new Point(BTN_LEFT_LOCATION_X, BTN_LOCATION_Y), tabIndex);
+            return CreateButton(text, new Point(btnLeft_LocationX, btnLocationY), tabIndex);
         }
 
         /// <summary>
@@ -101,7 +111,7 @@ namespace Learca
         /// <returns></returns>
         protected Button CreateMiddleButton(string text, int tabIndex)
         {
-            return CreateButton(text, new Point(BTN_MIDDLE_LOCATION_X, BTN_LOCATION_Y), tabIndex);
+            return CreateButton(text, new Point(btnMiddle_LocationX, btnLocationY), tabIndex);
         }
 
         /// <summary>
@@ -112,7 +122,7 @@ namespace Learca
         /// <returns></returns>
         protected Button CreateRightButton(string text, int tabIndex)
         {
-            return CreateButton(text, new Point(BTN_RIGHT_LOCATION_X, BTN_LOCATION_Y), tabIndex);
+            return CreateButton(text, new Point(btnRight_LocationX, btnLocationY), tabIndex);
         }
     }
 }

@@ -7,8 +7,8 @@
     /// </summary>
     class LearningControlsCreatorForTwoSidesCard_History_RepeatCard : LearningControlsCreatorForTwoSidesCard_History_CardIsLearned
     {
-        public LearningControlsCreatorForTwoSidesCard_History_RepeatCard(LearningPanel panel, HistoryTwoSidesCard historyCard)
-            : base(panel, historyCard)
+        public LearningControlsCreatorForTwoSidesCard_History_RepeatCard(MainForm mainForm, LearningPanel panel, HistoryTwoSidesCard historyCard)
+            : base( mainForm, panel, historyCard)
         {
 
         }

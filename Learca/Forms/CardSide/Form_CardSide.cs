@@ -97,7 +97,7 @@ namespace Learca
         /// </summary>
         private void InitPanel_Values()
         {
-            panel_Values = new Panel_Values(this, values)
+            panel_Values = new Panel_Values(mainForm, this, values)
             {
                 Location = panel_TextBoxes.Location,
                 Height = panel_TextBoxes.Height,

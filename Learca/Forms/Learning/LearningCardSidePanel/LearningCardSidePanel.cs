@@ -13,13 +13,14 @@ namespace Learca
     /// </summary>
     public class LearningCardSidePanel : Panel
     {
+        private readonly MainForm mainForm;
 
-        private const int TB_LOCATION_X = 36;
-        private const int TB_WIDTH = 600;
-        private const int TB_MARGIN = 6;
-        private const int PB_LOCATION_X = 36;
-        private const int PB_LOCATION_Y = 35;
-        private const int PB_WIDTH = 600;
+        private readonly int tbLocation_X;
+        private readonly int tbWidth;
+        private readonly int tbMargin;
+        private readonly int pBLocation_X;
+        private readonly int pBLocation_Y;
+        private readonly int pBWidth;
 
 
         private readonly int tBMaxHeight;
@@ -43,21 +44,28 @@ namespace Learca
         /// </summary>
         protected Image image;
 
-        public LearningCardSidePanel(CardSide cardSide)
+        public LearningCardSidePanel(MainForm mainForm, CardSide cardSide)
         {
+            this.mainForm = mainForm ?? throw new ArgumentNullException("MainForm mainForm не может быть null");
             this.cardSide = cardSide ?? throw new ArgumentNullException("CardSide cardSide не может быть null");
 
             TextBoxes = new TextBox[0];
 
-            tBMaxHeight = !cardSide.HasImage ? 500 : 329;
-            tBStartPosition_Y = !cardSide.HasImage ? 35 : 206;
-            pBHeight = (cardSide.ValueCount == 0) ? 500 : 165;
+            tBMaxHeight = mainForm.ConvertHeight(!cardSide.HasImage ? 500 : 329);
+            tBStartPosition_Y = mainForm.ConvertHeight(!cardSide.HasImage ? 35 : 206);
+            pBHeight = mainForm.ConvertHeight((cardSide.ValueCount == 0) ? 500 : 165);
+            tbLocation_X = mainForm.ConvertWidth(36);
+            pBWidth = tbWidth = mainForm.ConvertWidth(600);
+            tbMargin = mainForm.ConvertHeight(6);
+            pBLocation_X = mainForm.ConvertWidth(36);
+            pBLocation_Y = mainForm.ConvertHeight(35);
+            
 
             DoubleBuffered = true;
             BackgroundImage = Resources.Card;
             BackgroundImageLayout = ImageLayout.Stretch;
             BackColor = Color.Transparent;
-            Size = new Size(655, 590);
+            Size = new Size(mainForm.ConvertWidth(655), mainForm.ConvertHeight(590));
             Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         }
 
@@ -88,13 +96,13 @@ namespace Learca
 
             int nextPositionY = tBStartPosition_Y;
 
-            int height = (tBMaxHeight - ((values.Length - 1) * TB_MARGIN)) / values.Length;
+            int height = (tBMaxHeight - ((values.Length - 1) * tbMargin)) / values.Length;
 
             for (int i = 0; i < values.Length; i++)
             {
                 TextBoxes[i] = CreateTextBox(height, nextPositionY, values[i], textBoxIsReadOnly, !textBoxIsReadOnly);
 
-                nextPositionY += height + TB_MARGIN;
+                nextPositionY += height + tbMargin;
             }
 
             Controls.AddRange(TextBoxes);
@@ -104,14 +112,14 @@ namespace Learca
         {
             var tb = new TextBox
             {
-                Location = new Point(TB_LOCATION_X, locationY),
+                Location = new Point(tbLocation_X, locationY),
                 Text = text,
                 Height = height,
                 Multiline = true,
                 ScrollBars = ScrollBars.Vertical,
                 Font = new Font("Microsoft Sans Serif", 12),
                 BorderStyle = BorderStyle.None,
-                Width = TB_WIDTH,
+                Width = tbWidth,
                 ReadOnly = readOnly,
                 TabStop = tabStop
             };
@@ -143,8 +151,8 @@ namespace Learca
         {
             var pb = new PictureBox
             {
-                Location = new Point(PB_LOCATION_X, PB_LOCATION_Y),
-                Size = new Size(PB_WIDTH, pBHeight),
+                Location = new Point(pBLocation_X, pBLocation_Y),
+                Size = new Size(pBWidth, pBHeight),
                 BackColor = ColorTranslator.FromHtml("#e7e7e7")
         };
 

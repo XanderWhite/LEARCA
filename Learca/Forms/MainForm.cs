@@ -29,6 +29,26 @@ namespace Learca
         /// </summary>
         public Form Checkpoint { private get; set; }
 
+       /// <summary>
+       /// Конвертация числа относительно текущей ширины клиентской области
+       /// </summary>
+       /// <param name="width"></param>
+       /// <returns></returns>
+        public int ConvertWidth(int width)
+        {
+            return width * ClientSize.Width / 1347;
+        }
+
+        /// <summary>
+        ///  Конвертация числа относительно текущей высоты клиентской области
+        /// </summary>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        public int ConvertHeight(int height)
+        {
+            return height * ClientSize.Height / 721;
+        }
+
         public MainForm()
         {
             InitializeComponent();

@@ -62,7 +62,7 @@ namespace Learca
         /// </summary>
         /// <param name="panel"></param>
         /// <returns></returns>
-        public abstract LearningPanelControlsCreator CreateControlsCreatorFor(LearningPanel panel);
+        public abstract LearningPanelControlsCreator CreateControlsCreatorFor(MainForm mainForm, LearningPanel panel);
 
         /// <summary>
         /// Получение последней карточки добавленной в историю

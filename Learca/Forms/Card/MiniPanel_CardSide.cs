@@ -14,11 +14,13 @@ namespace Learca
     /// </summary>
     class MiniPanel_CardSide : Panel
     {
+        MainForm mainForm;
+
         private const int CARD_WIDTH = 437;
         private const int CARD_HEIGHT = 388;
 
         public CardSide Side { get; private set; }
-        
+
         /// <summary>
         /// Обработчик двойного нажатия на Панель и ее компоненты
         /// </summary>
@@ -26,13 +28,14 @@ namespace Learca
         private TextBox TextBox { get; set; }
         private PictureBox PictureBox { get; set; }
 
-        public MiniPanel_CardSide(CardSide side, Point location, EventHandler doubleClickEvent)
+        public MiniPanel_CardSide(MainForm mainForm, CardSide side, Point location, Size size, EventHandler doubleClickEvent)
         {
+            this.mainForm = mainForm ?? throw new ArgumentNullException("MainForm mainForm не может быть null");
             Side = side ?? throw new ArgumentNullException("CardSide side не может быть null");
-            this.doubleClickEvent = doubleClickEvent;
+            this.doubleClickEvent = doubleClickEvent;            
 
             Location = location;
-            Size = new Size(495, 482);
+            Size = size;
             BackColor = Color.Transparent;
             BackgroundImage = Resources.Card;
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -44,7 +47,7 @@ namespace Learca
             InitTextBox();
             InitPictureBox();
         }
-        
+
         /// <summary>
         /// Очищение стороны Карточки
         /// </summary>
@@ -60,7 +63,7 @@ namespace Learca
             if (Side.ParentCard.GetOneFilledSide() == null)
                 Side.ParentCard.RemoveCard();
         }
-        
+
         /// <summary>
         ///  Освобождение ресурсов занимаемых Image в PicturesBox
         /// </summary>
@@ -80,7 +83,7 @@ namespace Learca
 
             TextBox = new TextBox
             {
-                Width = CARD_WIDTH,
+                Width = mainForm.ConvertWidth(CARD_WIDTH),
                 Multiline = true,
                 ScrollBars = ScrollBars.Vertical,
                 ReadOnly = true,
@@ -91,13 +94,13 @@ namespace Learca
 
             if (string.IsNullOrWhiteSpace(Side.ImagePath))
             {
-                TextBox.Height = CARD_HEIGHT;
-                TextBox.Location = new Point(34, 38);
+                TextBox.Height = mainForm.ConvertHeight(CARD_HEIGHT);
+                TextBox.Location = new Point(mainForm.ConvertWidth(34), mainForm.ConvertHeight( 38));
             }
             else
             {
-                TextBox.Height = 219;
-                TextBox.Location = new Point(34, 207);
+                TextBox.Height = mainForm.ConvertHeight(219);
+                TextBox.Location = new Point(mainForm.ConvertWidth(34), mainForm.ConvertHeight(207));
             }
 
             TextBox.DoubleClick += doubleClickEvent;
@@ -116,16 +119,16 @@ namespace Learca
 
             PictureBox = new PictureBox
             {
-                Width = CARD_WIDTH,
-                Location = new Point(34, 38)
+                Width = mainForm.ConvertWidth(CARD_WIDTH),
+                Location = new Point(mainForm.ConvertWidth(34), mainForm.ConvertHeight(38))
             };
-            
+
             PictureBox.DoubleClick += doubleClickEvent;
 
             if (Side.ValueCount == 0)
-                PictureBox.Height = CARD_HEIGHT;
+                PictureBox.Height = mainForm.ConvertHeight(CARD_HEIGHT);
             else
-                PictureBox.Height = 165;
+                PictureBox.Height = mainForm.ConvertHeight(165);
 
             ImageHandler.FillPictureBox(PictureBox, image);
 

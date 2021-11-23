@@ -6,8 +6,8 @@
     /// </summary>
     abstract class LearningControlsCreatorForTwoSidesCard_OralAnswer : LearningControlsCreatorForTwoSidesCard
     {
-        public LearningControlsCreatorForTwoSidesCard_OralAnswer(LearningPanel panel, LearningTwoSidesCard learningCard)
-            : base(panel, learningCard)
+        public LearningControlsCreatorForTwoSidesCard_OralAnswer(MainForm mainForm, LearningPanel panel, LearningTwoSidesCard learningCard)
+            : base(mainForm, panel, learningCard)
         {
 
         }

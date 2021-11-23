@@ -13,17 +13,17 @@ namespace Learca
     /// </summary>
     class LearningControlsCreatorForTwoSidesCard_TypeAnswer : LearningControlsCreatorForTwoSidesCard
     {
-        private const int BTN_ANSWER_LOCATION_X = 1160;
+        private readonly int btnAnswer_LocationX;
 
         /// <summary>
         /// Количество попыток пользователя ответить
         /// </summary>
         private int userAttemptCount;
 
-        public LearningControlsCreatorForTwoSidesCard_TypeAnswer(LearningPanel panel, LearningTwoSidesCard learningCard)
-            : base(panel, learningCard)
+        public LearningControlsCreatorForTwoSidesCard_TypeAnswer(MainForm mainForm, LearningPanel panel, LearningTwoSidesCard learningCard) : base(mainForm, panel, learningCard)
         {
             userAttemptCount = 0;
+            btnAnswer_LocationX = mainForm.ConvertWidth(1160);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace Learca
         /// <returns></returns>
         private Button CreateButton_Answer()
         {
-            var btn = CreateButton("A", new Point(BTN_ANSWER_LOCATION_X, BTN_LOCATION_Y), 4);
+            var btn = CreateButton("A", new Point(btnAnswer_LocationX, btnLocationY), 4);
 
             btn.Click += Button_Answer_Click;
 
@@ -108,9 +108,9 @@ namespace Learca
         /// <returns></returns>
         protected override LearningCardSidePanel CreateRightCardSidePanel()
         {
-            var panel = new LearningCardSidePanel_TypeAnswer(rightSide)
+            var panel = new LearningCardSidePanel_TypeAnswer(mainForm, rightSide)
             {
-                Location = new Point(RIGTH_PANEL_LOCATION_X, PANEL_LOCATION_Y)
+                Location = new Point(rightPanel_LocationX, panel_LocationY)
             };
 
             return panel;

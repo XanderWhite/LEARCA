@@ -59,6 +59,11 @@ namespace Learca
 
             dataGridView_Cards.Columns["Column_LeftSideImage"].DefaultCellStyle.NullValue = null;
             dataGridView_Cards.Columns["Column_RightSideImage"].DefaultCellStyle.NullValue = null;
+
+            foreach (DataGridViewColumn column in dataGridView_Cards.Columns)
+            {
+                column.Width = mainForm.ConvertWidth(column.Width);
+            }
         }
        
         protected abstract void OpenDeck(AbstractDeck deck);
@@ -178,7 +183,7 @@ namespace Learca
 
             var card = dataGridView_Cards.SelectedRows[0].Tag as Card;
 
-            var form = new Form_LookAtDeck(card.ParentDeck);
+            var form = new Form_LookAtDeck(mainForm, card.ParentDeck);
 
             form.ShowDialog();
         }

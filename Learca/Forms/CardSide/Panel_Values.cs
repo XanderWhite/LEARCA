@@ -15,6 +15,7 @@ namespace Learca
     class Panel_Values : Panel
     {
         private readonly Form_CardSide form;
+        private readonly MainForm mainForm;
 
         /// <summary>
         /// Текстовые значения отображаемые в textbox'ах
@@ -27,9 +28,10 @@ namespace Learca
         const int TB_MAX_HEIGHT = 356;
         const int TB_MARGIN = 6;
 
-        public Panel_Values(Form_CardSide form, List<string> values)
+        public Panel_Values(MainForm mainForm, Form_CardSide form, List<string> values)
         {
             this.form = form ?? throw new ArgumentNullException("Form_CardSide form не может быть null");
+            this.mainForm = mainForm ?? throw new ArgumentNullException("MainForm mainForm не может быть null");
             this.values = values ?? throw new ArgumentNullException("List<string> values не может быть null");
 
             DoubleBuffered = true;
@@ -41,14 +43,14 @@ namespace Learca
         /// </summary>
         public void RefreshPanel()
         {
-            int nextPositionY = TB_START_POSITION_Y;
+            int nextPositionY = mainForm.ConvertHeight(TB_START_POSITION_Y);
 
             if (values.Count == 0)
                 values.Add(string.Empty);
 
             var controls = new Control[values.Count * 2];
 
-            int tbHeight = (TB_MAX_HEIGHT - ((values.Count - 1) * TB_MARGIN)) / values.Count;
+            int tbHeight = (mainForm.ConvertHeight(TB_MAX_HEIGHT) - ((values.Count - 1) * mainForm.ConvertHeight(TB_MARGIN))) / values.Count;
 
             for (int i = 0; i < values.Count; i++)
             {
@@ -104,7 +106,7 @@ namespace Learca
             var tb = new TextBox
             {
                 Text = values[valueIndex],
-                Width = TB_WIDTH,
+                Width = mainForm.ConvertWidth(TB_WIDTH),
                 Height = height,
                 Multiline = true,
                 ScrollBars = ScrollBars.Vertical,
@@ -132,13 +134,13 @@ namespace Learca
             var btn = new Button();
 
             btn.BackgroundImage = Resources.RedCross;
-            btn.Width =
-                btn.Height = 20;
+            btn.Width = mainForm.ConvertWidth(20);
+            btn.Height = mainForm.ConvertHeight(20);
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatStyle = FlatStyle.Flat;
             btn.BackColor = Color.Transparent;
             btn.BackgroundImageLayout = ImageLayout.Stretch;
-            btn.Location = new Point(tb.Location.X + TB_WIDTH + TB_MARGIN + 2, tb.Location.Y);
+            btn.Location = new Point(tb.Location.X + mainForm.ConvertWidth(TB_WIDTH) + mainForm.ConvertWidth(TB_MARGIN) + 2, tb.Location.Y);
 
             btn.Click += BtnDelete_Click;
 

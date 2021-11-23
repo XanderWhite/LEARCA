@@ -18,18 +18,20 @@ namespace Learca
         private const int PANEL_HEIGHT = 648;
         private const int PANEL_WIDTH = 1323;
 
-        private Form_Learning parentForm;
+        private readonly MainForm mainForm;
+        private readonly Form_Learning parentForm;
         private Teacher teacher;
        
-        public LearningPanel(Form_Learning parentForm, Teacher teacher)
+        public LearningPanel(MainForm mainForm, Form_Learning parentForm, Teacher teacher)
         {
+            this.mainForm = mainForm ?? throw new ArgumentNullException("MainForm mainForm не может быть null");
             this.parentForm = parentForm ?? throw new ArgumentNullException("Form_Learning parentForm не может быть null");
             this.teacher = teacher ?? throw new ArgumentNullException("Teacher teacher не может быть null");
 
             TabIndex = 0;
             BackColor = Color.Transparent;
-            Size = new Size(PANEL_WIDTH, PANEL_HEIGHT);
-            Location =new Point(LOCATION_X, LOCATION_Y);
+            Size = new Size(mainForm.ConvertWidth(PANEL_WIDTH), mainForm.ConvertHeight( PANEL_HEIGHT));
+            Location =new Point(mainForm.ConvertWidth(LOCATION_X), mainForm.ConvertHeight(LOCATION_Y));
             DoubleBuffered = true;
             Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 
@@ -55,7 +57,7 @@ namespace Learca
             }
             else
             { 
-               AddControls(teacher.CurrentCard.CreateControlsCreatorFor(this));
+               AddControls(teacher.CurrentCard.CreateControlsCreatorFor(mainForm, this));
             }
         }
 
@@ -66,7 +68,7 @@ namespace Learca
         {
             var lastHistoryCard = teacher.GetLastHistoryCard();
 
-            AddControls(lastHistoryCard.GetControlsCreatorFor(this));
+            AddControls(lastHistoryCard.GetControlsCreatorFor( mainForm, this));
         }
 
         /// <summary>

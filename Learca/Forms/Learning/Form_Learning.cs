@@ -35,7 +35,7 @@ namespace Learca
 
             MdiParent = mainForm;
 
-            Controls.Add(new LearningPanel(this, teacher));
+            Controls.Add(new LearningPanel(mainForm, this, teacher));
 
             Load += Form_Learning_Load;
         }

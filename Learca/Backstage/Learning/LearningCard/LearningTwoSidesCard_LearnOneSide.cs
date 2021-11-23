@@ -53,15 +53,15 @@ namespace Learca
         /// </summary>
         /// <param name="panel"></param>
         /// <returns></returns>
-        public override LearningPanelControlsCreator CreateControlsCreatorFor(LearningPanel panel)
+        public override LearningPanelControlsCreator CreateControlsCreatorFor(MainForm mainForm, LearningPanel panel)
         {
             if (TypeAnswer && AnswerSide.ValueCount > 0)
-                return new LearningControlsCreatorForTwoSidesCard_TypeAnswer(panel, this);
+                return new LearningControlsCreatorForTwoSidesCard_TypeAnswer( mainForm, panel, this);
             
             if (ShowAnswer)
-                return new LearningControlsCreatorForTwoSidesCard_OralAnswer_LearnOneSide(panel, this);
+                return new LearningControlsCreatorForTwoSidesCard_OralAnswer_LearnOneSide(mainForm, panel, this);
 
-            return new LearningControlsCreatorForTwoSidesCard_OralQuestion(panel, this);
+            return new LearningControlsCreatorForTwoSidesCard_OralQuestion(mainForm, panel, this);
         }
 
         /// <summary>

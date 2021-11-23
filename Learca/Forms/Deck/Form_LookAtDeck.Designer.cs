@@ -33,14 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView_Cards = new System.Windows.Forms.DataGridView();
+            this.textBoxDeckName = new System.Windows.Forms.TextBox();
+            this.textBoxStartingPoint = new System.Windows.Forms.TextBox();
+            this.label_Loading = new System.Windows.Forms.Label();
             this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnLeftSideValues = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_LeftSideImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnRighSideValues = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_RightSideImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.textBoxDeckName = new System.Windows.Forms.TextBox();
-            this.textBoxStartingPoint = new System.Windows.Forms.TextBox();
-            this.label_Loading = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Cards)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView_Cards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_Cards.ColumnHeadersHeight = 29;
             this.dataGridView_Cards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView_Cards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNumber,
@@ -79,60 +80,12 @@
             this.dataGridView_Cards.Name = "dataGridView_Cards";
             this.dataGridView_Cards.ReadOnly = true;
             this.dataGridView_Cards.RowHeadersVisible = false;
+            this.dataGridView_Cards.RowHeadersWidth = 51;
             this.dataGridView_Cards.RowTemplate.Height = 50;
             this.dataGridView_Cards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Cards.Size = new System.Drawing.Size(1149, 506);
             this.dataGridView_Cards.TabIndex = 3;
             this.dataGridView_Cards.TabStop = false;
-            // 
-            // ColumnNumber
-            // 
-            this.ColumnNumber.Frozen = true;
-            this.ColumnNumber.HeaderText = "№";
-            this.ColumnNumber.Name = "ColumnNumber";
-            this.ColumnNumber.ReadOnly = true;
-            this.ColumnNumber.Width = 49;
-            // 
-            // ColumnLeftSideValues
-            // 
-            this.ColumnLeftSideValues.Frozen = true;
-            this.ColumnLeftSideValues.HeaderText = "Left Side Values";
-            this.ColumnLeftSideValues.Name = "ColumnLeftSideValues";
-            this.ColumnLeftSideValues.ReadOnly = true;
-            this.ColumnLeftSideValues.Width = 400;
-            // 
-            // Column_LeftSideImage
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "System.Drawing.Bitmap";
-            this.Column_LeftSideImage.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column_LeftSideImage.Frozen = true;
-            this.Column_LeftSideImage.HeaderText = "Left Side Image";
-            this.Column_LeftSideImage.Name = "Column_LeftSideImage";
-            this.Column_LeftSideImage.ReadOnly = true;
-            this.Column_LeftSideImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column_LeftSideImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column_LeftSideImage.Width = 150;
-            // 
-            // ColumnRighSideValues
-            // 
-            this.ColumnRighSideValues.Frozen = true;
-            this.ColumnRighSideValues.HeaderText = "Right Side Values";
-            this.ColumnRighSideValues.Name = "ColumnRighSideValues";
-            this.ColumnRighSideValues.ReadOnly = true;
-            this.ColumnRighSideValues.Width = 400;
-            // 
-            // Column_RightSideImage
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "System.Drawing.Bitmap";
-            this.Column_RightSideImage.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column_RightSideImage.Frozen = true;
-            this.Column_RightSideImage.HeaderText = "Right Side Image";
-            this.Column_RightSideImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Column_RightSideImage.Name = "Column_RightSideImage";
-            this.Column_RightSideImage.ReadOnly = true;
-            this.Column_RightSideImage.Width = 150;
             // 
             // textBoxDeckName
             // 
@@ -170,6 +123,60 @@
             this.label_Loading.TabIndex = 36;
             this.label_Loading.Text = "LOADING...";
             // 
+            // ColumnNumber
+            // 
+            this.ColumnNumber.Frozen = true;
+            this.ColumnNumber.HeaderText = "№";
+            this.ColumnNumber.MinimumWidth = 6;
+            this.ColumnNumber.Name = "ColumnNumber";
+            this.ColumnNumber.ReadOnly = true;
+            this.ColumnNumber.Width = 49;
+            // 
+            // ColumnLeftSideValues
+            // 
+            this.ColumnLeftSideValues.Frozen = true;
+            this.ColumnLeftSideValues.HeaderText = "Left Side Values";
+            this.ColumnLeftSideValues.MinimumWidth = 6;
+            this.ColumnLeftSideValues.Name = "ColumnLeftSideValues";
+            this.ColumnLeftSideValues.ReadOnly = true;
+            this.ColumnLeftSideValues.Width = 398;
+            // 
+            // Column_LeftSideImage
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "System.Drawing.Bitmap";
+            this.Column_LeftSideImage.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column_LeftSideImage.Frozen = true;
+            this.Column_LeftSideImage.HeaderText = "Left Side Image";
+            this.Column_LeftSideImage.MinimumWidth = 6;
+            this.Column_LeftSideImage.Name = "Column_LeftSideImage";
+            this.Column_LeftSideImage.ReadOnly = true;
+            this.Column_LeftSideImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_LeftSideImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column_LeftSideImage.Width = 150;
+            // 
+            // ColumnRighSideValues
+            // 
+            this.ColumnRighSideValues.Frozen = true;
+            this.ColumnRighSideValues.HeaderText = "Right Side Values";
+            this.ColumnRighSideValues.MinimumWidth = 6;
+            this.ColumnRighSideValues.Name = "ColumnRighSideValues";
+            this.ColumnRighSideValues.ReadOnly = true;
+            this.ColumnRighSideValues.Width = 398;
+            // 
+            // Column_RightSideImage
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "System.Drawing.Bitmap";
+            this.Column_RightSideImage.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column_RightSideImage.Frozen = true;
+            this.Column_RightSideImage.HeaderText = "Right Side Image";
+            this.Column_RightSideImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Column_RightSideImage.MinimumWidth = 6;
+            this.Column_RightSideImage.Name = "Column_RightSideImage";
+            this.Column_RightSideImage.ReadOnly = true;
+            this.Column_RightSideImage.Width = 150;
+            // 
             // Form_LookAtDeck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -195,11 +202,11 @@
         private System.Windows.Forms.DataGridView dataGridView_Cards;
         private System.Windows.Forms.TextBox textBoxDeckName;
         private System.Windows.Forms.TextBox textBoxStartingPoint;
+        private System.Windows.Forms.Label label_Loading;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLeftSideValues;
         private System.Windows.Forms.DataGridViewImageColumn Column_LeftSideImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRighSideValues;
         private System.Windows.Forms.DataGridViewImageColumn Column_RightSideImage;
-        private System.Windows.Forms.Label label_Loading;
     }
 }

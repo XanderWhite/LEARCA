@@ -24,13 +24,13 @@ namespace Learca
         /// </summary>
         Label label_ShowPicture;
 
-        public LearningCardSidePanel_TypeAnswer(CardSide cardSide, bool showPicture, List<string> userAnswerValues) : base(cardSide)
+        public LearningCardSidePanel_TypeAnswer(MainForm mainForm, CardSide cardSide, bool showPicture, List<string> userAnswerValues) : base(mainForm, cardSide)
         {
             this.showPicture = showPicture;
             this.userAnswerValues = userAnswerValues;
         }
 
-        public LearningCardSidePanel_TypeAnswer(CardSide cardSide) : this(cardSide, false, new List<string>())
+        public LearningCardSidePanel_TypeAnswer(MainForm mainForm, CardSide cardSide) : this(mainForm, cardSide, false, new List<string>())
         {
 
         }

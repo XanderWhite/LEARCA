@@ -75,6 +75,11 @@ namespace Learca
 
             Dock = DockStyle.Fill;
             DoubleBuffered = true;
+
+            foreach (DataGridViewColumn column in dataGridView_Decks.Columns)
+            {
+                column.Width = mainForm.ConvertWidth(column.Width);
+            }
         }
 
         private void Form_SettingsToLearn_FormClosed(object sender, FormClosedEventArgs e)

@@ -64,7 +64,7 @@ namespace Learca
         /// <param name="deck"></param>
         protected override void OpenDeck(AbstractDeck deck)
         {
-            var form = new Form_LookAtDeck(deck);
+            var form = new Form_LookAtDeck(mainForm, deck);
             form.ShowDialog();
         }
 

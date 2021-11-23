@@ -20,9 +20,9 @@
         /// Получить Создателя Кнопок и Панелей с изображением сторон карточек для LearningPanel   
         /// <param name="panel"></param>
         /// <returns></returns>
-        public override LearningPanelControlsCreator GetControlsCreatorFor(LearningPanel panel)
+        public override LearningPanelControlsCreator GetControlsCreatorFor(MainForm mainForm, LearningPanel panel)
         {
-            return new LearningControlsCreatorForOneSideCard_History(panel, this);
+            return new LearningControlsCreatorForOneSideCard_History(mainForm, panel, this);
         }
     }
 }
